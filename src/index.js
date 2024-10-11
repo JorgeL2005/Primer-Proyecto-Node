@@ -2,6 +2,7 @@ import express from 'express';
 import ejs from 'ejs';
 import {dirname, join} from 'path';
 import { fileURLToPath } from 'url';
+import indexRoutes from './routes/routes.js'
 
 const app = express();
 
@@ -12,7 +13,9 @@ const RUTA = dirname(fileURLToPath(import.meta.url)) //* Funcion para sacar la r
 app.set('views', join(RUTA, '/views') )
 app.set('view engine', 'ejs')
 
-app.get('/', (req,res) => res.render('index') )
+//* Enrutamiento:
+app.use(indexRoutes)
+
 
 app.listen(3000)
 console.log('Server esta escuchando por puerto', 3000)
