@@ -16,6 +16,8 @@ app.set('view engine', 'ejs')
 //* Enrutamiento:
 app.use(indexRoutes)
 
+app.use(express.static(join(RUTA, 'public')))  //* Para usar el main.css
+
 
 app.listen(3000)
 console.log('Server esta escuchando por puerto', 3000)
